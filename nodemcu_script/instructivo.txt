@@ -1,0 +1,13 @@
+EN el ide de arduino, ir a preferencias
+
+Ingresar aditional board manager urls: http://arduino.esp8266.com/stable/package_esp8266com_index.json
+
+
+En el board manager o administrador de tarjetas, descargar esp8266 by esp8266 community
+
+
+Seleccionar como placa nodemcu 1.0
+
+
+cargar el programa
+
