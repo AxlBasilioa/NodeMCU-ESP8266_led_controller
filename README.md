@@ -1,4 +1,4 @@
-# NodeMCU-ESP8266_led_controller
+# NodeMCU-ESP8266 led controller
 
 Implementation of an Android application to control rgb leds connected to an NodeMCU-ESP8266 board
 
