@@ -20,5 +20,6 @@ Scheme:
 ### Usage: 
 
 - In nodemcu_script/esp8266/esp8266.ino file, change ssid and password variables by your own wifi credentials
+- Install script on your board
 - On the arduino ide monitor set to 115200 baud, you can see the status of the device. When it shows as "connected", then the IP address assigned to the board will be printed
 - The next step consist in install the android app on your device or emulator and set the ip address previously geted
