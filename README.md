@@ -2,11 +2,16 @@
 
 Implementation of an Android application to control rgb leds connected to an NodeMCU-ESP8266 board
 
+
+
+##
 ##
 ##
 ## This repository is currently on development state
 ##
 ##
+
+
 
 ### Scheme:
 
