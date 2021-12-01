@@ -81,15 +81,18 @@ void loop() {
   digitalWrite(blueLed,blueValue);
   
 
-  
   client.flush();
 
   
   if(request.indexOf('/LED=ON') != -1){
-    digitalWrite(greenLed , HIGH);
+    digitalWrite(greenLed , greenValue);
+    digitalWrite(blueLed , blueValue);
+    digitalWrite(redLed , redValue);
   }
   if(request.indexOf('/LED=OF') != -1){
     digitalWrite(greenLed , LOW);
+    digitalWrite(blueLed , LOW);
+    digitalWrite(redLed , LOW);
   }
 
   client.println("HTTP/1.1 200 OK");
