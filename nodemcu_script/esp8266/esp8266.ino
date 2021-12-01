@@ -1,17 +1,24 @@
 #include <ESP8266WiFi.h>
 
 
-const char* ssid="abcd";
-const char* password = "abcd1234";
+const char* ssid="";
+const char* password = "";
 
 WiFiServer server(80);
 
-int ledPin = 13;
+int greenLed = 13; //D6
+int redLed = 14;   //D7
+int blueLed = 15;  //D8
 
 void setup() {
   
-  pinMode(ledPin,OUTPUT);
-  digitalWrite(ledPin,LOW);
+  pinMode(greenLed,OUTPUT);
+  pinMode(blueLed, OUTPUT);
+  pinMode(redLed, OUTPUT);
+  
+  digitalWrite(greenLed,LOW);
+  digitalWrite(blueLed,LOW);
+  digitalWrite(redLed,LOW);
 
   Serial.begin(115200);
   Serial.println();
@@ -28,7 +35,10 @@ void setup() {
       Serial.print(".");        
   }
 
-  digitalWrite(ledPin , HIGH);
+  digitalWrite(greenLed,HIGH);
+  digitalWrite(blueLed,LOW);
+  digitalWrite(redLed,LOW);
+  
   Serial.println();
 
   Serial.println("Wifi Connected Success!");
@@ -56,24 +66,30 @@ void loop() {
   
   //Serial.println(request);
 
-  Serial.print("RED: ");
-  Serial.println(request.substring(request.indexOf('R')+2, request.indexOf('R')+5));
-
-  Serial.print("GREEN: ");
-  Serial.println(request.substring(request.indexOf('V')+2, request.indexOf('V')+5));
-
-  Serial.print("BLUE: ");
-  Serial.println(request.substring(request.indexOf('B')+2, request.indexOf('B')+5));
+  //Serial.print("RED: ");
+  //Serial.println(request.substring(request.indexOf('R')+2, request.indexOf('R')+5));
+  //Serial.print("GREEN: ");
+  //Serial.println(request.substring(request.indexOf('V')+2, request.indexOf('V')+5));
+  //Serial.print("BLUE: ");
+  //Serial.println(request.substring(request.indexOf('B')+2, request.indexOf('B')+5));
+  
+  int redValue = (request.substring(request.indexOf('R')+2, request.indexOf('R')+5)).toInt();
+  digitalWrite(redLed,redValue);
+  int greenValue = (request.substring(request.indexOf('V')+2, request.indexOf('V')+5)).toInt();
+  digitalWrite(greenLed,greenValue);
+  int blueValue = (request.substring(request.indexOf('B')+2, request.indexOf('B')+5)).toInt();
+  digitalWrite(blueLed,blueValue);
+  
 
   
   client.flush();
 
   
   if(request.indexOf('/LED=ON') != -1){
-    digitalWrite(ledPin , HIGH);
+    digitalWrite(greenLed , HIGH);
   }
   if(request.indexOf('/LED=OF') != -1){
-    digitalWrite(ledPin , LOW);
+    digitalWrite(greenLed , LOW);
   }
 
   client.println("HTTP/1.1 200 OK");
