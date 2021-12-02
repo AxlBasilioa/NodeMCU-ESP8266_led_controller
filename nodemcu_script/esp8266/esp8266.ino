@@ -12,11 +12,6 @@ int greenLed = 13; //D6
 int redLed = 14;   //D7
 int blueLed = 15;  //D8
 
-//initial values
-int redValue = 0;
-int greenValue = 255;
-int blueValue = 0;
-
 void setup() {
 
   //set pin output mode
@@ -85,25 +80,25 @@ void loop() {
   
   Serial.println(request);
 
+  client.flush();
+
   //get color's led values from the request
-  redValue = (request.substring(request.indexOf('R')+2, request.indexOf('R')+5)).toInt();
+  int redValue = (request.substring(request.indexOf('R')+2, request.indexOf('R')+5)).toInt();
   digitalWrite(redLed,redValue);
-  greenValue = (request.substring(request.indexOf('V')+2, request.indexOf('V')+5)).toInt();
+  int greenValue = (request.substring(request.indexOf('V')+2, request.indexOf('V')+5)).toInt();
   digitalWrite(greenLed,greenValue);
-  blueValue = (request.substring(request.indexOf('B')+2, request.indexOf('B')+5)).toInt();
+  int blueValue = (request.substring(request.indexOf('B')+2, request.indexOf('B')+5)).toInt();
   digitalWrite(blueLed,blueValue);
   delay(2);
 
-  client.flush();
-
   //get status from request (ON / OFF)
   if(request.indexOf('/LED=ON') != -1){
-    digitalWrite(greenLed , greenValue);
-    digitalWrite(blueLed , blueValue);
-    digitalWrite(redLed , redValue);
     digitalWrite(greenLed , HIGH);
     digitalWrite(blueLed , HIGH);
     digitalWrite(redLed , HIGH);
+    digitalWrite(greenLed , greenValue);
+    digitalWrite(blueLed , blueValue);
+    digitalWrite(redLed , redValue);
   }
   if(request.indexOf('/LED=OF') != -1){
     digitalWrite(greenLed , LOW);
