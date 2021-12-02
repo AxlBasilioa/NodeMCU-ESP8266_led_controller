@@ -64,14 +64,7 @@ void loop() {
 
   String request = client.readStringUntil('\r');
   
-  //Serial.println(request);
-
-  //Serial.print("RED: ");
-  //Serial.println(request.substring(request.indexOf('R')+2, request.indexOf('R')+5));
-  //Serial.print("GREEN: ");
-  //Serial.println(request.substring(request.indexOf('V')+2, request.indexOf('V')+5));
-  //Serial.print("BLUE: ");
-  //Serial.println(request.substring(request.indexOf('B')+2, request.indexOf('B')+5));
+  Serial.println(request);
   
   int redValue = (request.substring(request.indexOf('R')+2, request.indexOf('R')+5)).toInt();
   digitalWrite(redLed,redValue);
@@ -79,7 +72,7 @@ void loop() {
   digitalWrite(greenLed,greenValue);
   int blueValue = (request.substring(request.indexOf('B')+2, request.indexOf('B')+5)).toInt();
   digitalWrite(blueLed,blueValue);
-  
+  delay(2);
 
   client.flush();
 
