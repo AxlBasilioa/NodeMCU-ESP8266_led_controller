@@ -1,8 +1,8 @@
 #include <ESP8266WiFi.h>
 
-//replace with your home wifi credentials and locate your mobile in the network to provide the ip adress to android app
+//replace with your home wifi credentials and locate your esp8266 in the network to provide the ip adress to android app
 //or
-//create wifi connection from your device with the next credentials and put device's local ip in android app
+//create wifi connection from your phone with the next credentials and put esp8266 ip in android app
 
 const char* ssid="esp8266";
 const char* password = "esp_8266";
