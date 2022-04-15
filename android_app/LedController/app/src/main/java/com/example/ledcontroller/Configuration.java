@@ -2,32 +2,19 @@ package com.example.ledcontroller;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
-
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.NumberPicker;
-import android.widget.Switch;
-import android.widget.Toast;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.larswerkman.holocolorpicker.ColorPicker;
-import com.larswerkman.holocolorpicker.OpacityBar;
-import com.larswerkman.holocolorpicker.SVBar;
-import com.larswerkman.holocolorpicker.SaturationBar;
-import com.larswerkman.holocolorpicker.ValueBar;
-
 import java.util.Locale;
 
 public class Configuration extends AppCompatActivity implements ColorPicker.OnColorChangedListener {
 
-    private String host;
+
     private boolean state = true;
     private String aux, url;
     private int  r, g, b;
@@ -37,7 +24,8 @@ public class Configuration extends AppCompatActivity implements ColorPicker.OnCo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configuration);
-        host = getIntent().getExtras().getString("host");
+
+        String host = getIntent().getExtras().getString("host");
 
         hexa = findViewById(R.id.hexa_edit);
 
@@ -94,19 +82,17 @@ public class Configuration extends AppCompatActivity implements ColorPicker.OnCo
 
     }
 
-    protected String intToRGB(int colorint) {
-        String hexa = String.format("#%06X", (0xFFFFFF & colorint));
+    protected void intToRGB(int colorint) {
+        //String hexa = String.format("#%06X", (0xFFFFFF & colorint));
         r = Color.red(colorint);
         g = Color.green(colorint);
         b = Color.blue(colorint);
-        return "R:" + r + "| G:" + g + "| B:" + b;
     }
 
     @Override
     public void onColorChanged(int color) {
         intToRGB(color);
         setEndpoint();
-        System.out.println(aux + " " + state);
         hexa.setText(String.format("#%06X", (0xFFFFFF & color)));
         sendRequest(aux);
     }

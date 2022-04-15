@@ -1,8 +1,11 @@
 #include <ESP8266WiFi.h>
 
-//replace with wifi credentials
-const char* ssid="";
-const char* password = "";
+//replace with your home wifi credentials and locate your mobile in the network to provide the ip adress to android app
+//or
+//create wifi connection from your device with the next credentials and put device's local ip in android app
+
+const char* ssid="esp8266";
+const char* password = "esp_8266";
 
 //declare Wifi server listening on 80 port
 WiFiServer server(80);
@@ -82,7 +85,7 @@ void loop() {
 
   client.flush();
 
-  //get color's led values from the request
+  //get leds color values from the request
   int redValue = (request.substring(request.indexOf('R')+2, request.indexOf('R')+5)).toInt();
   digitalWrite(redLed,redValue);
   int greenValue = (request.substring(request.indexOf('V')+2, request.indexOf('V')+5)).toInt();
