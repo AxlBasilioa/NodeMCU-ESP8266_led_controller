@@ -14,7 +14,7 @@ Implementation of an Android application to control rgb leds connected to an Nod
 - In the arduino ide, go to preferences
 - Insert as aditional board manager urls: http://arduino.esp8266.com/stable/package_esp8266com_index.json
 - In the board manager, download esp8266 by esp8266 community
-- Select as board nodemcu 1.0
+- Select nodemcu 1.0 as board
 
 
 ### Usage: 
