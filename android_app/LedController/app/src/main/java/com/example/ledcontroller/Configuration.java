@@ -15,7 +15,7 @@ import java.util.Locale;
 public class Configuration extends AppCompatActivity implements ColorPicker.OnColorChangedListener {
 
 
-    private boolean state = true;
+    private boolean state = false;
     private String aux, url;
     private int  r = 128, g = 255, b = 000;
     private EditText hexa;
@@ -30,6 +30,9 @@ public class Configuration extends AppCompatActivity implements ColorPicker.OnCo
         hexa = findViewById(R.id.hexa_edit);
 
         url = "http://" + host;
+
+        setEndpoint();
+        sendRequest(url);
 
         setColorPickerListener();
         setSwitchListener();
@@ -47,7 +50,7 @@ public class Configuration extends AppCompatActivity implements ColorPicker.OnCo
         String red = String.format(Locale.getDefault(),"%03d", r);
         String green = String.format(Locale.getDefault(), "%03d", g);
         String blue = String.format(Locale.getDefault(), "%03d", b);
-        if (state) {
+        if (!state) {
             aux = url + "/LED=OFF&R="+red+"&V="+green+"&B="+blue;
         } else {
             aux = url + "/LED=ON&R="+red+"&V="+green+"&B="+blue;
