@@ -17,7 +17,7 @@ public class Configuration extends AppCompatActivity implements ColorPicker.OnCo
 
     private boolean state = true;
     private String aux, url;
-    private int  r, g, b;
+    private int  r = 128, g = 255, b = 000;
     private EditText hexa;
 
     @Override
@@ -31,8 +31,8 @@ public class Configuration extends AppCompatActivity implements ColorPicker.OnCo
 
         url = "http://" + host;
 
-        setSwitchListener();
         setColorPickerListener();
+        setSwitchListener();
     }
 
     protected void sendRequest(String url) {
