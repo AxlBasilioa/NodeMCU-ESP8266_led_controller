@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">LedController</string>
+    <string name="insert_esp8266_ip_address_in_network">Insert ESP8266 IP address in network</string>
+    <string name="ip_address">IP address</string>
+    <string name="remember">Remember</string>
+    <string name="connect">Connect</string>
+    <string name="ffffff">#FFFFFF</string>
+    <string name="hexacode">hexacode</string>
+    <string name="led_controller">LED controller</string>
+    <string name="logo">logo</string>
+    <string name="start">Start</string>
+    <string name="exit">Exit</string>
 </resources>

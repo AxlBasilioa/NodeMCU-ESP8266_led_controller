@@ -7,8 +7,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
 import java.util.Objects;
 
 public class SetupAddress extends AppCompatActivity {
@@ -52,16 +54,16 @@ public class SetupAddress extends AppCompatActivity {
                 i.putExtra("host", host);
                 startActivity(i);
             } else {
-                Toast.makeText(this, "Debe ingresar una IP valida", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Must insert valid IP address", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    public void saveData(String host, boolean ischecked) {
+    public void saveData(String host, boolean checked) {
         SharedPreferences preferences = getSharedPreferences("device-data", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("host", host);
-        editor.putBoolean("checkbox", ischecked);
+        editor.putBoolean("checkbox", checked);
         editor.apply();
     }
 

@@ -77,10 +77,13 @@
                 android:layout_gravity="center">
 
                 <EditText
+                    android:importantForAutofill="no"
+                    android:hint="@string/hexacode"
+                    android:inputType="text"
                     android:id="@+id/hexa_edit"
                     android:enabled="false"
                     android:gravity="center"
-                    android:text="#FFFFFF"
+                    android:text="@string/ffffff"
                     android:textColor="@color/white"
                     android:background="@color/soft_grey"
                     android:layout_width="55dp"

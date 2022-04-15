@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".SetupAddress">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,92 +16,87 @@
         <include layout="@layout/toolbar" />
 
         <LinearLayout
-            android:id="@+id/linear_container"
+            android:id="@+id/linear_fields"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
             android:orientation="vertical"
-            android:paddingBottom="40dp">
+            android:padding="10dp">
 
             <LinearLayout
-                android:id="@+id/linear_fields"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="@string/insert_esp8266_ip_address_in_network"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/edtHostName"
+                    android:layout_width="300dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded"
+                    android:inputType="text"
+                    android:hint="@string/ip_address"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:importantForAutofill="no">
+
+                    <requestFocus />
+                </EditText>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <CheckBox
+                    android:id="@+id/checkbox_save_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="11dp"
+                    android:paddingEnd="11dp"
+                    android:text="@string/remember"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAlignment="center"
-                        android:text="Insert ESP8266 IP address in network"
-                        android:layout_marginBottom="20dp"
-                        android:textColor="@color/white" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="15dp"
-                    android:orientation="vertical">
-
-                    <EditText
-                        android:id="@+id/edtHostName"
-                        android:layout_width="300dp"
-                        android:layout_height="70dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/rounded"
-                        android:hint="IP address"
-                        android:paddingStart="15dp"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white">
-
-                        <requestFocus />
-                    </EditText>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center">
-
-                    <CheckBox
-                        android:id="@+id/checkbox_save_data"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="11dp"
-                        android:text="Remember"
-                        android:textColor="@color/white" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <Button
-                        android:id="@+id/btnLoginFtp"
-                        android:layout_width="150dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/rounded"
-                        android:text="Connect"
-                        android:textSize="15sp" />
-
-                </LinearLayout>
+                <Button
+                    android:id="@+id/btnLoginFtp"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded"
+                    android:text="@string/connect"
+                    android:textSize="15sp" />
 
             </LinearLayout>
+
         </LinearLayout>
     </LinearLayout>
 
