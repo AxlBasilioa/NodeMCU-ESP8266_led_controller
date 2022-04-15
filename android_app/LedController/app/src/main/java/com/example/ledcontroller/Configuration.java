@@ -31,6 +31,7 @@ public class Configuration extends AppCompatActivity implements ColorPicker.OnCo
 
         url = "http://" + host;
 
+        //first time to sync app state with led state
         setEndpoint();
         sendRequest(url);
 
